@@ -22,8 +22,8 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y,
   // TODO 2: Use the m_Model.FindClosestNode method to find the closest nodes to
   // the starting and ending coordinates. Store the nodes you find in the
   // RoutePlanner's start_node and end_node attributes.
-  this->start_node = &m_Model.FindClosestNode(start_x, start_y);
-  this->end_node = &m_Model.FindClosestNode(end_x, end_y);
+  start_node = &m_Model.FindClosestNode(start_x, start_y);
+  end_node = &m_Model.FindClosestNode(end_x, end_y);
 }
 
 // TODO 3: Implement the CalculateHValue method.
@@ -34,7 +34,7 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y,
 
 float RoutePlanner::CalculateHValue(RouteModel::Node const *node) {
   float hValue;
-  return hValue = node->distance(*this->end_node);
+  return hValue = node->distance(*end_node);
 }
 
 // TODO 4: Complete the AddNeighbors method to expand the current node by adding
@@ -122,7 +122,7 @@ void RoutePlanner::AStarSearch() {
 
   // TODO: Implement your solution here.
   // Initialize the starting node
-  current_node = this->start_node;
+  current_node = start_node;
   current_node->g_value = 0.0;
   current_node->h_value = CalculateHValue(current_node);
   current_node->visited = true;
