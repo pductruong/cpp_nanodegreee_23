@@ -48,7 +48,7 @@ int main() {
   // ReadBoardFile("1.board");
   // Leave the following line commented out.
   // PrintBoard(board);
-  for (auto i: ParseLine("0,1,0,0,0,0,")){
+  for (auto i : ParseLine("0,1,0,0,0,0,")) {
     cout << i << "\n";
   }
 }
